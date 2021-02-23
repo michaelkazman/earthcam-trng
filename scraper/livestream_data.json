@@ -8,5 +8,15 @@
         "url": "https://www.earthcam.com/cams/newyork/timessquare/?cam=tsrobo1",
         "image_path": "newyork_cam",
         "tag": "720p"
+    },
+    {
+        "url": "https://www.youtube.com/watch?v=lkIJYc4UH60",
+        "image_path": "shibuya_cam",
+        "tag": "720p"
+    },
+    {
+        "url": "https://www.youtube.com/watch?v=GzbPVzPnT-U",
+        "image_path": "kusatsu_onsen",
+        "tag": "720p"
     }
 ]
