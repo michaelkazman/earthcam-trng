@@ -1,2 +1,1 @@
 # EarthCam-PRNG
-# EarthCam-PRNG
