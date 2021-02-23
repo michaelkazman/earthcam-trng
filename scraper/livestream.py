@@ -7,8 +7,9 @@ class Livestream(object):
         self.__session = Streamlink()
         self.__url = stream_data['url']
         self.__tag = stream_data['tag']
+        self.__frame = None
         # for saving frames locally
-        image_path =  '{0}.jpg'.format(stream_data['image_path'])
+        image_path =  '../images/{0}.jpg'.format(stream_data['image_path'])
         self.__image_path = image_path
 
     # get current frame of stream
@@ -17,11 +18,10 @@ class Livestream(object):
         stream_link = self.__get_stream_link()
         # capture frame of video stream
         try:
-            print(stream_link)
             capture = cv2.VideoCapture(stream_link, cv2.CAP_FFMPEG)
             (status, frame) = self.__read_stream(capture)
             if status:
-                self.frame = frame
+                self.__frame = frame
                 return frame
         # repeat process
         except cv2.error as e:
@@ -29,7 +29,8 @@ class Livestream(object):
 
     # save last recorded frame (for testing / debugging)
     def save_frame(self):
-        cv2.imwrite(self.__image_path, self.frame)
+        if (self.__frame is not None):
+            cv2.imwrite(self.__image_path, self.__frame)
 
     # retrieve url for the current live stream chunk
     def __get_stream_link(self):
@@ -41,7 +42,7 @@ class Livestream(object):
     def __read_stream(self, capture):
         if capture.isOpened():
             return capture.read()
-        return (None, False)
+        return (False, None)
 
     def get_url(self):
         return self.__url
