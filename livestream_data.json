@@ -1,0 +1,12 @@
+[
+    {
+        "url": "https://www.earthcam.com/usa/nevada/lasvegas/fremontstreet/?cam=catsmeow_lv_fremont",
+        "image_path": "lasvegas_cam",
+        "tag": "720p"
+    },
+    { 
+        "url": "https://www.earthcam.com/cams/newyork/timessquare/?cam=tsrobo1",
+        "image_path": "newyork_cam",
+        "tag": "720p"
+    }
+]
