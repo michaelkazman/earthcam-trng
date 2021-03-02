@@ -2,12 +2,13 @@ from livestream import Livestream
 from threading import Thread
 from random import sample
 
+
 class LivestreamScraper(object):
     def __init__(self, livestream_data):
-       self.__num_streams = 3
-       self.__livestreams = self.__generate_livestreams(livestream_data)
-       self.__threads = []
-       
+        self.__num_streams = 3
+        self.__livestreams = self.__generate_livestreams(livestream_data)
+        self.__threads = []
+
     # generate list of livestream objects
     def __generate_livestreams(self, livestream_data):
         live_streams = sample(livestream_data, self.__num_streams)
@@ -28,7 +29,7 @@ class LivestreamScraper(object):
         images = []
         # start each thread
         for i, stream in enumerate(self.__livestreams):
-            thread = Thread(target = self.__append_images, daemon=True, args=(stream, images))
+            thread = Thread(target=self.__append_images, daemon=True, args=(stream, images))
             thread.start()
             threads.append(thread)
         # wait for all threads to complete
