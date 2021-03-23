@@ -1,7 +1,6 @@
 from streamlink import Streamlink
 import cv2
 
-
 class Livestream(object):
     def __init__(self, stream_data):
         # streamlink (low overhead for consecutive retreivals)
@@ -10,7 +9,7 @@ class Livestream(object):
         self.__tag = stream_data['tag']
         self.__frame = None
         # for saving frames locally
-        self.__image_path = f'..\images\{stream_data["image_path"]}.jpg'
+        self.__image_path = f'../images/{stream_data["image_path"]}.jpg'
 
     # get current frame of stream
     def get_current_frame(self):
@@ -30,8 +29,9 @@ class Livestream(object):
     # save last recorded frame (for testing / debugging)
     def save_frame(self, img_dir):
         if self.__frame is not None:
-            print(f'{img_dir}\{self.__image_path}')
-            cv2.imwrite(f'{img_dir}\{self.__image_path}', self.__frame)
+            image_path = f'{img_dir}/{self.__image_path}'
+            print('Saving file to: ', image_path)
+            cv2.imwrite(image_path, self.__frame)
 
     # retrieve url for the current live stream chunk
     def __get_stream_link(self):
@@ -45,5 +45,6 @@ class Livestream(object):
             return capture.read()
         return (False, None)
 
+    # get video source url
     def get_url(self):
         return self.__url
