@@ -1,3 +1,4 @@
+import numpy as np
 def xor_images(img_list):
     base = img_list[0]
     for i in range(1, len(img_list)):
