@@ -10,8 +10,7 @@ class Livestream(object):
         self.__tag = stream_data['tag']
         self.__frame = None
         # for saving frames locally
-        image_path = '../images/{0}.jpg'.format(stream_data['image_path'])
-        self.__image_path = image_path
+        self.__image_path = f'..\images\{stream_data["image_path"]}.jpg'
 
     # get current frame of stream
     def get_current_frame(self):
@@ -29,9 +28,10 @@ class Livestream(object):
             self.get_current_frame()
 
     # save last recorded frame (for testing / debugging)
-    def save_frame(self):
+    def save_frame(self, img_dir):
         if self.__frame is not None:
-            cv2.imwrite(self.__image_path, self.__frame)
+            print(f'{img_dir}\{self.__image_path}')
+            cv2.imwrite(f'{img_dir}\{self.__image_path}', self.__frame)
 
     # retrieve url for the current live stream chunk
     def __get_stream_link(self):
