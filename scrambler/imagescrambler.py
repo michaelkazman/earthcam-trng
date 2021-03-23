@@ -24,6 +24,12 @@ class ImageScrambler(object):
         np.random.shuffle(copied_img)
         return copied_img
 
+    def __call__(self, images):
+        scrambled_images = []
+        for img in images:
+            scrambled_images.append(self.scramble1(img))
+        return scrambled_images
+
 
 if __name__ == '__main__':
     scrambler = ImageScrambler()
