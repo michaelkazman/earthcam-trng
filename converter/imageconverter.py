@@ -16,7 +16,7 @@ if __name__ == '__main__':
         for i in [1, 2]:
             print(image_name + '-------------------------')
             dir_path = os.path.dirname(os.path.realpath(__file__))
-            image = cv2.imread(f'{dir_path}/scrambled/{image_name}_{i}.jpg')
+            image = cv2.imread(f'{dir_path}/../scrambler/scrambled/{image_name}_{i}.jpg')
             image_converter = ImageConverter(image)
             print(image_converter.get_entropy())
         
