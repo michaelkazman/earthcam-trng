@@ -2,8 +2,8 @@ import numpy as np
 
 class ImageScrambler(object):
     # randomly scramble every r, g, and b value together
-    # to generate random pixels of n^k unique colors, where
-    # n is how many possible rgb values exist and k is the # of color values
+    # to generate a random permutation of pixels with n^k unique colors
+    # (n is how many possible rgb values exist and k is the # of color values)
     def scramble(self, image):
         rows, columns, pixels = image.shape
         flattened_image = image.flatten()
