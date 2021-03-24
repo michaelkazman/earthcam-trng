@@ -1,7 +1,7 @@
 import copy
-
 import cv2
 import numpy as np
+import os
 
 
 class ImageScrambler(object):
@@ -32,11 +32,12 @@ class ImageScrambler(object):
 
 
 if __name__ == '__main__':
-    scrambler = ImageScrambler()
-    image = cv2.imread('rainbow.jpg')
-    scrambled1 = scrambler.scramble1(image)
-    scrambled2 = scrambler.scramble2(image)
-    cv2.imwrite('scrambled_rainbow.jpg', scrambled1)
-    cv2.imshow('image 1', scrambled1)
-    cv2.imshow('image 2', scrambled2)
-    cv2.waitKey()
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    image_names = ['flag', 'david', 'egg', 'kusatsu_onsen_cam', 'lasvegas_cam', 'shibuya_cam', 'white']
+    for image_name in image_names:
+        scrambler = ImageScrambler()
+        image = cv2.imread(f'{dir_path}/{image_name}.jpg')
+        scrambled1 = scrambler.scramble1(image)
+        scrambled2 = scrambler.scramble2(image)
+        cv2.imwrite(f'{dir_path}/scrambled/{image_name}_1.jpg', scrambled1)
+        cv2.imwrite(f'{dir_path}/scrambled/{image_name}_2.jpg', scrambled2)

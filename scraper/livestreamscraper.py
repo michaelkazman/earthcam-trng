@@ -2,7 +2,6 @@ from livestream import Livestream
 from threading import Thread
 from random import sample
 
-
 class LivestreamScraper(object):
     def __init__(self, livestream_data, img_dir):
         self.__num_streams = 3
