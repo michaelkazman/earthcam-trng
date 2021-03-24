@@ -1,15 +1,19 @@
+import time
+
 from scipy.stats import entropy
 
 import numpy as np
 import pandas as pd
 import logging
 
+
 # consecutively xor a list of images together
 def xor_images(images):
     for i in range(len(images) - 1):
         xored_image = np.bitwise_xor(images[i], images[i + 1])
-        images[i+1] = xored_image
+        images[i + 1] = xored_image
     return images[-1]
+
 
 # calculate average entropy of each r, g, and b channels
 def calculate_entropy(image):
@@ -20,10 +24,12 @@ def calculate_entropy(image):
     entropy_value = (r_entropy + g_entropy + b_entropy) / 3
     return entropy_value
 
+
 # split image into (r, g, b) values
 # opencv encodes images as (b, g, r)
 def split_image(image):
-    return image[:,:,2].flatten(), image[:,:,1].flatten(), image[:,:,0].flatten()
+    return image[:, :, 2].flatten(), image[:, :, 1].flatten(), image[:, :, 0].flatten()
+
 
 # verify if the provided entropy is "random" enough
 # to be considered secure
@@ -31,6 +37,22 @@ def verify_entropy(image):
     entropy_threshold = 5.00
     return image >= entropy_threshold
 
+
 # custom warning (incase a lack of entropy exists)
 def send_warnings(message, category, filename, lineno, file=None, line=None):
     logging.warning(f'{filename}:{lineno}:\n\t{category.__name__}:{message}')
+
+
+def runtime(func, *args, times=10, **kwargs):
+    print(f"Running '{func.__name__}' {times} times")
+    start_time = time.time()
+    elapsed_time = start_time
+
+    for i in range(0, 10):
+        func(*args, **kwargs)
+        print(f"Run #{i + 1}: {time.time() - elapsed_time} seconds")
+        elapsed_time = time.time()
+
+    total_time = time.time() - start_time
+    print(f"Total time: {total_time} seconds.\nAverage time: {total_time/times}")
+

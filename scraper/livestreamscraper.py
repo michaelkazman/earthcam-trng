@@ -4,7 +4,7 @@ from random import sample
 
 class LivestreamScraper(object):
     def __init__(self, livestream_data, img_dir):
-        self.__num_streams = 3
+        self.__num_streams = 4
         self.__livestreams = self.__generate_livestreams(livestream_data)
         self.__threads = []
         self.__img_dir = img_dir
