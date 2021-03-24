@@ -11,7 +11,7 @@ class ImageScrambler(object):
         Flattens it into 2d array first
         """
         rows, columns, pixels = image.shape
-        reshaped = copy.deepcopy(image.reshape(rows * columns, pixels))
+        reshaped = copy.deepcopy(image.reshape(rows * columns * pixels))
         np.random.shuffle(reshaped)
         return reshaped.reshape(rows, columns, pixels)
 
