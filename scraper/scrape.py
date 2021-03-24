@@ -1,4 +1,4 @@
-from livestreamscraper import LivestreamScraper
+from .livestreamscraper import LivestreamScraper
 import json
 import os 
 
@@ -16,6 +16,3 @@ def get_images():
     scraper = LivestreamScraper(livestream_data, dir_path)
     images = scraper.get_images()
     return images
-
-if __name__ == '__main__':
-    get_images()

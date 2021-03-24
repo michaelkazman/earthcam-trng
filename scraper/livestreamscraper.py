@@ -1,4 +1,4 @@
-from livestream import Livestream
+from .livestream import Livestream
 from threading import Thread
 from random import sample
 
