@@ -1,5 +1,8 @@
+import traceback
+
 from streamlink import Streamlink
 import cv2
+
 
 class Livestream(object):
     def __init__(self, stream_data):
@@ -15,23 +18,20 @@ class Livestream(object):
     def get_current_frame(self):
         # update stream link
         stream_link = self.__get_stream_link()
+
         # capture frame of video stream
-        try:
-            capture = cv2.VideoCapture(stream_link, cv2.CAP_FFMPEG)
-            (status, frame) = self.__read_stream(capture)
-            if status:
-                self.__frame = frame
-                return frame
-        # repeat process
-        except cv2.error as e:
-            self.get_current_frame()
+        capture = cv2.VideoCapture(stream_link, cv2.CAP_FFMPEG)
+        (status, frame) = self.__read_stream(capture)
+        if status:
+            self.__frame = frame
+            return frame
 
     # save last recorded frame (for testing / debugging)
     def save_frame(self, img_dir):
         if self.__frame is not None:
             image_path = f'{img_dir}/{self.__image_path}'
             print('Saving file to: ', image_path)
-            #cv2.imwrite(image_path, self.__frame)
+            # cv2.imwrite(image_path, self.__frame)
 
     # retrieve url for the current live stream chunk
     def __get_stream_link(self):

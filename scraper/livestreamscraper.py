@@ -41,5 +41,6 @@ class LivestreamScraper(object):
     # append images to list (from stream object)
     def __append_images(self, stream, images):
         frame = stream.get_current_frame()
-        images.append(frame)
+        if frame is not None:
+            images.append(frame)
         stream.save_frame(self.__img_dir)
