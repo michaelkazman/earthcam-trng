@@ -19,6 +19,12 @@ The image scrambler permutes every pixel of the provided images (down to the ind
 
 An example of an image before and after scrambling is provided below.
 
+Source Image           |  Shuffled Image
+:-------------------------:|:-------------------------:
+![Cryptographic Tux](/images/tux.png)  |  ![Shuffled Cryptographic Lenna Image](/images/tux_shuffled.png)
+![Cryptographic Lenna Image](/images/lenna.png)  |  ![Shuffled Cryptographic Lenna Image](/images/lenna_shuffled.png)
+
+
 ## Image Converter
 After xoring the scrambled images, the resulting image is measured in terms of entropy. Specifically the R, G, and B channels of the image are measured for entropy separately and averaged to generate a single output value. If the image contains enough entropy, the image is converted to a series of bytes (to be used elsewhere).
 
