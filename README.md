@@ -14,6 +14,10 @@ The image scraper uses [OpenCV](https://opencv.org/) and [Streamlink](https://st
 
 The following images show images taken from the corresponding streams [here](https://github.com/SeniorFluffie/EarthCam-PRNG/blob/main/scraper/livestream_data.json).
 
+Shibuya, Japan           |  Las Vegas, U.S.A
+:-------------------------:|:-------------------------:
+![Cryptographic Tux](/images/shibuya_cam.png)  |  ![Shuffled Cryptographic Lenna Image](/images/lasvegas_cam.png)
+
 ## Image Scrambler
 The image scrambler permutes every pixel of the provided images (down to the individual RGB values).
 
