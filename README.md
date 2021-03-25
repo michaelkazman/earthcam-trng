@@ -1,5 +1,5 @@
 # EarthCam-PRNG
-![Earthcam-PRNG Logo](/images/earthcam_logo.png)
+![Earthcam-PRNG Logo](/images/earthcam_banner.png)
 
 ## Installation
 To install all required dependencies, execute the bash installation script:
