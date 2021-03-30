@@ -1,12 +1,11 @@
 import warnings
 import numpy as np
-
+import os
+import cv2
 from converter.convert import convert_image
 from scrambler.scramble import scramble_images
 from scraper.scrape import get_images
 from utils.utils import xor_images, calculate_entropy, verify_entropy, send_warnings
-
-import os, cv2
 
 def main():
     # get images from image scraper
@@ -47,6 +46,5 @@ def main():
     # return random bytes
     return convert_image
 
-
 if __name__ == '__main__':
-    print(main())
+    main()
