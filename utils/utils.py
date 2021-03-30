@@ -43,6 +43,7 @@ def send_warnings(message, category, filename, lineno, file=None, line=None):
     logging.warning(f'{filename}:{lineno}:\n\t{category.__name__}:{message}')
 
 
+# analysis of system runtime
 def runtime(func, *args, times=10, **kwargs):
     print(f"Running '{func.__name__}' {times} times")
     start_time = time.time()
