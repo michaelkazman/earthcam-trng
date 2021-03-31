@@ -2,7 +2,7 @@
 ![Earthcam-TRNG Logo](/images/earthcam_banner.png)
 
 ## Installation
-To install all required dependencies, execute the bash installation script:
+To install all required dependencies, execute the bash installation script (from the project's root directory):
 
 `./install.sh`
 
