@@ -1,3 +1,5 @@
+const { EarthBlock } = require('./earthblock')
+
 class EarthChain {
     constructor() {
       this.blockchain = [this.startGenesisBlock()];
@@ -36,3 +38,5 @@ class EarthChain {
       return true;
     }
   }
+
+module.exports = { EarthChain };

@@ -40,3 +40,5 @@ class EarthBlock {
       }
     }
   }
+
+module.exports = { EarthBlock };

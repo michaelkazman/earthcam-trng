@@ -1,8 +1,9 @@
-import { EarthChain } from 'earthchain'
-import { EartBlock } from 'earthblock'
+const { EarthBlock } = require('./earthblock')
+const { EarthChain } = require('./earthchain')
 
 function main() {
   let earthCoin = new EarthChain();
+  
   console.log("EarthCoin blockchain initializing....");
   
   earthCoin.addNewBlock(
@@ -10,7 +11,7 @@ function main() {
       sender: "Iris Ljesnjanin",
       recipient: "Cosima Mielke",
       quantity: 69
-    })    );
+    }));
   
   earthCoin.addNewBlock(
     new EarthBlock(2, "01/07/2020", {
