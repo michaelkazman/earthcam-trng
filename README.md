@@ -6,8 +6,20 @@ To install all required dependencies, execute the bash installation script:
 
 `./install.sh`
 
+NodeJS is required for executing the EarthCoin blockchain, and can be installed with the follow:
+
+`apt-get install node`
+
 ## Execution
-TODO
+Earthcam-TRNG is being utilized in a simple blockchain application, known as Earthcoin.
+
+Images from around the world are scraped, permuted, and combined to create a series of random bytes.
+
+This is then fed into the blockchain application in the form of a nonce (a number used once) for the blockchain's SHA256 hash function.
+
+The process described above can be executed with the following command:
+
+`node blockchain/main.js`
 
 ## Image Scraper
 The image scraper uses [OpenCV](https://opencv.org/) and [Streamlink](https://streamlink.github.io/) to establish a connection with multiple sources like [EarthCam](https://www.earthcam.com/) and [YouTube](https://www.youtube.com/). From this, a multitude of streams are looked at, and the current frame of that stream is grabbed and passed to the rest of the pipeline.
