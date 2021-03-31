@@ -1,5 +1,6 @@
 const execSync = require('child_process').execSync;
 const SHA256 = require("crypto-js/sha256");
+const path = require('path');
 
 class EarthBlock {
     constructor(index, timestamp, data, precedingHash = " ", hash) {
@@ -12,7 +13,7 @@ class EarthBlock {
     }
   
     computeNonce(difficulty) {
-      const randomByteArray = execSync("python3 ../main.py");
+      const randomByteArray = execSync(`python3 ${path.resolve("./main.py")}`);
       const randomBytes = new Uint32Array(randomByteArray).slice(0, 5)
       const nonce = Number(randomBytes.join(""));
       return nonce
