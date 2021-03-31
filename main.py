@@ -41,10 +41,9 @@ def main():
     # convert image
     converted_image = convert_image(xored_image)
 
-    print(converted_image)
-
     # return random bytes
     return convert_image
 
 if __name__ == '__main__':
-    main()
+    random_bytes = main()
+    print(random_bytes)
