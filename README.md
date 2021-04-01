@@ -1,6 +1,11 @@
 # EarthCam-TRNG
 ![Earthcam-TRNG Logo](/images/earthcam_banner.png)
 
+## Runtime Environment
+The tested operating environment(s) are listed below:
+
+* Ubuntu 20.04.1 LTS
+
 ## Installation
 To install all required dependencies, execute the bash installation script (from the project's root directory):
 
@@ -8,7 +13,7 @@ To install all required dependencies, execute the bash installation script (from
 
 NodeJS is also required for executing the EarthCoin blockchain, and can be installed with the following:
 
-`apt-get install node`
+`apt-get install nodejs`
 
 ## Execution
 Earthcam-TRNG is being utilized in a simple blockchain application, courtesy of [Alfrick Opidi](https://www.smashingmagazine.com/2020/02/cryptocurrency-blockchain-node-js/), known as Earthcoin.
@@ -17,7 +22,7 @@ Images from around the world are scraped, permuted, and combined to create a ser
 
 The bytes are then fed into the blockchain application in the form of a nonce (number used once) for SHA256 hash generation.
 
-The process described above can be executed with the following command:
+The process described above can be executed with the following command (may take ~1 minute for execution to complete):
 
 `node blockchain/main.js`
 
@@ -46,7 +51,9 @@ After xoring the scrambled images, the resulting image is measured in terms of e
 
 The histogram below showcases the frequency of byte values taken from images processed through the entire system.
 
-![Byte Frequency Histogram](/images/frequency_histogram.png)
+<p align="center">
+  <img height="386" src="/images/frequency_histogram.png">
+</p>
 
 ## Architecture
 The system's entire architecture can be seen in the following image.
